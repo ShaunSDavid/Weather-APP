@@ -79,25 +79,29 @@ const UserTable = () => {
   const [Uname, setUname] = useState("");
   const [Email, setEmail] = useState("");
 
+  const fetchData = async () => {
+    try {
+      const snapshot = await usersCollection.get();
+      const usersData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setUsers(usersData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const snapshot = await usersCollection.get();
-        const usersData = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setUsers(usersData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
     fetchData();
   }, []); // Empty dependency array to ensure useEffect runs only once on component mount
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data: users });
+
+  const handleRefresh = () => {
+    // Refresh the data when the button is clicked
+    fetchData();
+  };
 
   return (
     <>
@@ -158,6 +162,11 @@ const UserTable = () => {
             </td>
           </tr>
         </table>
+        <br></br>
+        <br></br>
+        <button className="refresh-button" onClick={handleRefresh}>
+          Refresh
+        </button>
       </div>
     </>
   );

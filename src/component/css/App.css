@@ -54,8 +54,29 @@ body {
 
 .active-but{
   border-radius: 15px;
-  background: #1f2123;
-  font-family: 'Recursive', sans-serif;
   color: aliceblue;
-  height: 50px;
+  background-color: #120770;
+  font-family: 'Recursive', sans-serif;
+  font-size: large;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+}
+.active-but:hover {
+  border-color: #1f2123;
+}
+
+.refresh-button {
+  border-radius: 15px;
+  color: aliceblue;
+  background-color: #120770;
+  font-family: 'Recursive', sans-serif;
+  font-size: large;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.refresh-button:hover {
+  border-color: #1f2123;
 }
