@@ -57,7 +57,8 @@
   }
   
   .actions button:hover {
-    background-color: #f0f0f0;
+    background: #1f2123;
+    color:aliceblue;
   }
   
   /* Style for specific buttons (you can customize as needed) */
@@ -79,6 +80,10 @@
     border-radius: 4px;
   }
   
+  .add:hover{
+    background: #1f2123;
+    color:aliceblue;
+  }
   .actions button.delete {
     background-color: #f44336;
     color: white;
