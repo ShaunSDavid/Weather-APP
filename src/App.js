@@ -4,7 +4,7 @@ import SearchIcon from "./component/search.svg";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { auth } from "./component/firebase";
 
-import "./App.css";
+import "./component/css/App.css";
 
 function App() {
   const [lat, setLat] = useState(null);

@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment"; // Import moment properly
-import "./styles.css";
+import "./css/styles.css";
 
 const WeatherCard = ({ Wdata }) => {
   if (Wdata.count === 0) {

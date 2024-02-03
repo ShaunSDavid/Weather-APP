@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
-import "./table.css";
+import "./css/table.css";
 import { firebase, usersCollection } from "./firebase";
 
 const handleStatusChange = async (uid) => {

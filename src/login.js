@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./login.css";
+import "./component/css/login.css";
 import { firebase, usersCollection } from "./component/firebase";
 
 const Login = () => {
