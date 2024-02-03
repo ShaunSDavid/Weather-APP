@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import "semantic-ui-css/semantic.min.css";
 import Login from "./login";
 import App from "./App";
-import UserTable from "./component/Usertable";
+import UserTable from "./Usertable";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,7 +14,7 @@ root.render(
     <Routes>
       <Route path="/" element={<Login />}></Route>
       <Route path="/App" element={<App />}></Route>
-      <Route path="/component/Usertable" element={<UserTable />}></Route>
+      <Route path="/Usertable" element={<UserTable />}></Route>
     </Routes>
   </Router>
 );

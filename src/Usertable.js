@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTable } from "react-table";
-import "./css/table.css";
-import { firebase, usersCollection } from "./firebase";
+import "./component/css/table.css";
+import { firebase, usersCollection } from "./component/firebase";
 
 const handleStatusChange = async (uid) => {
-  const Navigate = useNavigate();
   try {
     // Update the user status in Firestore
     const userDoc = await usersCollection.doc(uid).get();
@@ -14,11 +12,9 @@ const handleStatusChange = async (uid) => {
     if (userData.status === "Active") {
       await usersCollection.doc(uid).update({ status: "Inactive" });
       console.log(`Change status of user ${uid} to "Inactive"`);
-      Navigate("/component/Usertable");
     } else {
       await usersCollection.doc(uid).update({ status: "Active" });
       console.log(`Change status of user ${uid} to Active`);
-      Navigate("/component/Usertable");
     }
   } catch (error) {
     console.error("Error updating status:", error);
@@ -35,7 +31,6 @@ const handleAddUser = async (uid, uname, email) => {
         addeddate: firebase.firestore.FieldValue.serverTimestamp(),
         status: "Active",
       });
-      Navigate("/component/Usertable");
     }
     console.log(`Add user action for ${uid}`);
   } catch (error) {
@@ -48,7 +43,6 @@ const handleDeleteUser = async (uid) => {
     // Delete the user from Firestore
     await usersCollection.doc(uid).delete();
     console.log(`Delete user action for ${uid}`);
-    Navigate("/component/Usertable");
   } catch (error) {
     console.error("Error deleting user:", error);
   }

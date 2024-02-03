@@ -12,6 +12,7 @@ function App() {
   const [wcity, setWCity] = useState(null);
   const [data, setData] = useState(null);
   const [showUserTable, setShowUserTable] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null);
   const Navigate = useNavigate(); // Get the navigate function
 
@@ -89,10 +90,10 @@ function App() {
           </div>
         </div>
         <br />
-        <button onClick={handleShowUserTable}>
-          {showUserTable ? "Close Active Users" : "Show Active Users"}
+        <button onClick={handleShowUserTable} className="active-but">
+          {showUserTable ? "Close Activity" : "View Activity"}
         </button>
-        {showUserTable && Navigate("/component/Usertable")}
+        {showUserTable && Navigate("/Usertable")}
       </div>
     </>
   );

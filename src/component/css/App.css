@@ -51,3 +51,11 @@ body {
 .search img:hover {
   cursor: pointer;
 }
+
+.active-but{
+  border-radius: 15px;
+  background: #1f2123;
+  font-family: 'Recursive', sans-serif;
+  color: aliceblue;
+  height: 50px;
+}
