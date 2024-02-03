@@ -12,6 +12,7 @@ function App() {
   const [wcity, setWCity] = useState(null);
   const [data, setData] = useState(null);
   const [showUserTable, setShowUserTable] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null);
   const Navigate = useNavigate(); // Get the navigate function
 
@@ -19,14 +20,14 @@ function App() {
     const fetchData = async () => {
       const unsubscribe = auth.onAuthStateChanged((authUser) => {
         if (authUser) {
-          // User is signed in
+          // user is signed in
           setUser(authUser);
         } else {
-          // User is signed out
+          // user is signed out
           setUser(null);
+          // user is intentionally unused
         }
       });
-
       navigator.geolocation.getCurrentPosition(function (pos) {
         setLat(pos.coords.latitude);
         setLong(pos.coords.longitude);
