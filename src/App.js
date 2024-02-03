@@ -93,7 +93,7 @@ function App() {
         <button onClick={handleShowUserTable} className="active-but">
           {showUserTable ? "Close Activity" : "View Activity"}
         </button>
-        {showUserTable && Navigate("/Usertable")}
+        {showUserTable && Navigate("https://skyscripter.netlify.app/Usertable")}
       </div>
     </>
   );
