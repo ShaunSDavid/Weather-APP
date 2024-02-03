@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
 import "./component/css/table.css";
 import { firebase, usersCollection } from "./component/firebase";
+let count = 0;
 
 const handleStatusChange = async (uid) => {
   try {
@@ -154,7 +155,9 @@ const UserTable = () => {
                 />
                 <button
                   className="add"
-                  onClick={() => handleAddUser("newUserId", Uname, Email)}
+                  onClick={() =>
+                    handleAddUser(`newUserId${count++}`, Uname, Email)
+                  }
                 >
                   Add/Edit User
                 </button>
