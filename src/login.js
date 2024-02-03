@@ -48,30 +48,35 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <h1>Weatherteller</h1>
-      <h1>Login</h1>
-      <form className="login-form">
-        <label>UserName:</label>
-        <input
-          type="text"
-          value={Uname}
-          onChange={(e) => setUname(e.target.value)}
-        />
-        <br />
-        <label>Email:</label>
-        <input
-          type="email"
-          value={Email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <br />
-        <button type="button" onClick={handleLogin}>
-          Login
-        </button>
-      </form>
-    </div>
+    <>
+      <head>
+        <title>Weatherteller</title>
+      </head>
+      <div className="login-container">
+        <h1>Weatherteller</h1>
+        <h1>Login</h1>
+        <form className="login-form">
+          <label>UserName:</label>
+          <input
+            type="text"
+            value={Uname}
+            onChange={(e) => setUname(e.target.value)}
+          />
+          <br />
+          <label>Email:</label>
+          <input
+            type="email"
+            value={Email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br />
+          <br />
+          <button type="button" onClick={handleLogin}>
+            Login
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 

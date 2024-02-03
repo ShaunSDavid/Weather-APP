@@ -65,32 +65,37 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Weatherteller</h1>
-      {data ? <WeatherCard Wdata={data} /> : <div>Loading...</div>}
-      <br />
-      <br />
-      <div>
-        <h1>Search for your Country/City</h1>
-        <div className="search">
-          <input
-            placeholder="Search for your City"
-            value={wcity}
-            onChange={(e) => setWCity(e.target.value)}
-          />
-          <img
-            src={SearchIcon}
-            alt="Search"
-            onClick={() => searchCity(wcity)}
-          />
+    <>
+      <head>
+        <title>Weatherteller</title>
+      </head>
+      <div className="App">
+        <h1>Weatherteller</h1>
+        {data ? <WeatherCard Wdata={data} /> : <div>Loading...</div>}
+        <br />
+        <br />
+        <div>
+          <h1>Search for your Country/City</h1>
+          <div className="search">
+            <input
+              placeholder="Search for your City"
+              value={wcity}
+              onChange={(e) => setWCity(e.target.value)}
+            />
+            <img
+              src={SearchIcon}
+              alt="Search"
+              onClick={() => searchCity(wcity)}
+            />
+          </div>
         </div>
+        <br />
+        <button onClick={handleShowUserTable}>
+          {showUserTable ? "Close Active Users" : "Show Active Users"}
+        </button>
+        {showUserTable && Navigate("/component/Usertable")}
       </div>
-      <br />
-      <button onClick={handleShowUserTable}>
-        {showUserTable ? "Close Active Users" : "Show Active Users"}
-      </button>
-      {showUserTable && Navigate("/component/Usertable")}
-    </div>
+    </>
   );
 }
 

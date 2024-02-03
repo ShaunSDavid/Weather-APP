@@ -101,6 +101,9 @@ const UserTable = () => {
 
   return (
     <>
+      <head>
+        <title>Weatherteller</title>
+      </head>
       <br></br>
       <h1>User's Log</h1>
       <div className="table-container">
