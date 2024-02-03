@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+
+* {
+  text-align: center;
+}
+
+.table-container {
+  width: 700px;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #120770;
+  border-radius: 15px;
+}
+
+.header {
+  background-color: black;
+  color: aliceblue;
+  padding: 20px;
+  height:60px;
+  font-size: 24px;
+  font-family: 'Recursive', sans-serif;
+  border-radius: 15px;
+}
+
+.row {
+  &:nth-child(even) {
+    background-color: #1a1a1a;
+  }
+}
+
+.cell {
+  padding: 15px;
+  color: antiquewhite;
+  font-size: 18px;
+  font-family: 'Recursive', sans-serif;
+  font-weight: 500;
+}
+
+/* Add these styles to table.css */
+
+.actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .actions button {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .actions button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Style for specific buttons (you can customize as needed) */
+  .actions button.activate {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .actions button.deactivate {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .add {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .actions button.delete {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .add-user-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .add-user-container input {
+    margin-right: 10px; /* Adjust the margin as needed */
+  }
+  

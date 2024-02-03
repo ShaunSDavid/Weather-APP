@@ -1,44 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
 
-*{
-  margin:0;
-  border:0;
+* {
+  margin: 0;
+  border: 0;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
 .App {
+  background-image: url("./component/bg1.jpg");
+  background-size: cover;
   text-align: center;
-  background-color: black;
-  color:aliceblue;
-  padding:4rem;
+  color: black;
+  padding: 4rem;
   align-items: center;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-.search{
-  width:70%;
+.search {
+  width: 70%;
   margin: 3rem 2.5rem 2rem 4rem;
   display: flex;
   align-items: center;
   padding: 1.5rem 3rem;
-
   border-radius: 2rem;
-  background:#1f2123;
-} 
-
-.search input{
-  border-radius: 2rem;
-  background:#1f2123;
-  height:30px;
-  width:200px;
-  color:aliceblue;
-  font-family: 'Recursive', sans-serif;
-  font-size: large;
+  background: #1f2123;
 }
 
-.search input:hover{
+.search input {
+  border-radius: 2rem;
+  background: #1f2123;
+  height: 30px;
+  width: 200px;
+  color: aliceblue;
+  font-family: 'Recursive', sans-serif;
+  font-size: large;
+  outline: none;
+}
+
+.search input:hover {
   border-color: #1f2123;
 }
 
-.search img:hover{
+.search img:hover {
   cursor: pointer;
 }

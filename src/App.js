@@ -1,17 +1,32 @@
-import "./App.css";
-import { useEffect, useState } from "react";
-import WeatherCard from "./component/weather"; // Updated import
-import "./App.css";
+import React, { useEffect, useState } from "react";
+import WeatherCard from "./component/weather";
 import SearchIcon from "./component/search.svg";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { auth } from "./component/firebase";
+
+import "./App.css";
 
 function App() {
   const [lat, setLat] = useState(null);
   const [long, setLong] = useState(null);
   const [wcity, setWCity] = useState(null);
   const [data, setData] = useState(null);
+  const [showUserTable, setShowUserTable] = useState(false);
+  const [user, setUser] = useState(null);
+  const Navigate = useNavigate(); // Get the navigate function
 
   useEffect(() => {
     const fetchData = async () => {
+      const unsubscribe = auth.onAuthStateChanged((authUser) => {
+        if (authUser) {
+          // User is signed in
+          setUser(authUser);
+        } else {
+          // User is signed out
+          setUser(null);
+        }
+      });
+
       navigator.geolocation.getCurrentPosition(function (pos) {
         setLat(pos.coords.latitude);
         setLong(pos.coords.longitude);
@@ -20,7 +35,7 @@ function App() {
       if (lat !== null && long !== null) {
         try {
           const response = await fetch(
-            `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${long}&key=0912a0fc464b48e4812329cc41dfc0db	`
+            `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${long}&key=0912a0fc464b48e4812329cc41dfc0db`
           );
           const result = await response.json();
           setData(result);
@@ -29,11 +44,11 @@ function App() {
           console.error("Fetch error:", error);
         }
       }
+      return () => unsubscribe();
     };
     fetchData();
   }, [lat, long]);
 
-  //For cities
   const searchCity = async (city) => {
     const response = await fetch(
       `https://api.weatherbit.io/v2.0/current?city=${city}&key=0912a0fc464b48e4812329cc41dfc0db`
@@ -41,9 +56,12 @@ function App() {
     const result = await response.json();
     setData(result);
   };
-  useEffect(() => {
-    searchCity();
-  }, []);
+
+  const handleShowUserTable = () => {
+    setShowUserTable(true);
+    // Optionally, you can also navigate to a different route here
+    // For example: navigate('/user-table');
+  };
 
   return (
     <div className="App">
@@ -66,6 +84,11 @@ function App() {
           />
         </div>
       </div>
+      <br />
+      <button onClick={handleShowUserTable}>
+        {showUserTable ? "Close Active Users" : "Show Active Users"}
+      </button>
+      {showUserTable && Navigate("/component/Usertable")}
     </div>
   );
 }

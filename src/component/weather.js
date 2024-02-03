@@ -2,10 +2,6 @@ import React from "react";
 import moment from "moment"; // Import moment properly
 import "./styles.css";
 
-const refresh = () => {
-  window.location.reload();
-};
-
 const WeatherCard = ({ Wdata }) => {
   if (Wdata.count === 0) {
     return <div>No weather data available</div>;
