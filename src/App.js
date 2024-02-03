@@ -12,7 +12,6 @@ function App() {
   const [wcity, setWCity] = useState(null);
   const [data, setData] = useState(null);
   const [showUserTable, setShowUserTable] = useState(false);
-  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null);
   const Navigate = useNavigate(); // Get the navigate function
 
